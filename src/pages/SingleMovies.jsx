@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import Sidebar from "../components/Sidebar";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getDateInUtcFormate } from "../features/getUTCTime";
 import star from "../assets/Star.png";
 import { BiChevronDown } from "react-icons/bi";
 import ticket from "../assets/Two_Tickets.png";
 import list from "../assets/List.png";
-import groupMovies from "../assets/Group_Movies.png";
+import groupMovies from "../assets/Group_movies.png";
+import { GrFormPreviousLink } from "react-icons/gr";
 
 const SingleMovies = () => {
   const [singleMovie, setSingleMovie] = useState(null);
@@ -48,27 +49,38 @@ const SingleMovies = () => {
   return (
     <div className=" flex items-center">
       <Sidebar />
-      <div className="md:w-[70%]  px-3 overflow-x-hidden w-[100%] mt-8 rounded-lg">
+      <div className="md:w-[70%]  px-3 overflow-x-hidden w-[100%]  lg:mt-8 rounded-lg">
+        <div className=" flex py-2 lg:hidden">
+          <Link to="/">
+            <GrFormPreviousLink size={45} />
+          </Link>
+        </div>
         <img
-          className="bg-center bg-cover bg-no-repeat object-cover w-[1198px] h-[449px] rounded-lg "
+          className="bg-center bg-cover bg-no-repeat object-cover w-full lg:w-[1198px] lg:h-[449px] rounded-lg "
           src={`https://image.tmdb.org/t/p/original${
             singleMovie?.backdrop_path || singleMovie?.poster_path
           }`}
         />
-        <div className=" flex-col md:flex-row flex md:items-center md:gap-5  md:justify-between w-full  font-[500]">
-          <div className=" flex-col flex gap-3 md:mt-4 text-[10px] md:text-[17px] md:flex-row mt-4">
-            <span data-testid="movie-title" className="flex gap-4">
+        <div className=" flex-col lg:flex-row flex lg:items-center lg:gap-5  lg:justify-between w-full  font-[500]">
+          <div className=" flex gap-2 lg:gap-5 md:mt-4 text-[10px] md:text-[17px] md:flex-row mt-4">
+            <h1
+              data-testid="movie-title"
+              className="flex gap-4 text-sm lg:text-2xl"
+            >
               {singleMovie?.title}
-              <span data-testid="movie-release-date">
-                {getDateInUtcFormate(singleMovie?.release_date)}
-              </span>
-              <span data-testid="movie-runtime">
-                {hours}h {minutes}m
-              </span>
-            </span>
+            </h1>
+            <h1
+              data-testid="movie-release-date"
+              className="text-sm lg:text-2xl"
+            >
+              {getDateInUtcFormate(singleMovie?.release_date)}
+            </h1>
+            <h1 data-testid="movie-runtime" className="text-sm lg:text-2xl">
+              {hours}h {minutes}m
+            </h1>
           </div>
 
-          <div className="text-[10px] md:text-[17px]">
+          <div className="text-[10px] md:text-[17px] mt-4 md:mt-0">
             <span className="flex items-center  md:justify-end  text-[10px] gap-2">
               <img src={star} alt="star" className=" w-[30px] h-[30px]" />
               <div className=" flex items-center gap-4">
@@ -80,7 +92,7 @@ const SingleMovies = () => {
             </span>
           </div>
         </div>
-        <div className="md:flex md:flex-row    md:items-center w-full md:justify-between gap-5 flex-col ">
+        <div className="md:flex md:flex-row  md:items-start w-full md:justify-between gap-5 flex-col lg:mt-5 ">
           <div className="w-full flex flex-col items-start">
             <p
               className="md:text-[15px] font-[400] leading-[30px] text-[20px] my-3"
@@ -89,8 +101,8 @@ const SingleMovies = () => {
               {singleMovie?.overview}
             </p>
 
-            <div className="flex flex-col items-start md:flex-row gap-3">
-              <button className="text-white bg-[#BE123C] rounded p-2 text-[20px] w-[220px] font-medium">
+            <div className="flex flex-col gap-3 mt-5 items-start justify-start md:justify-center  md:items-center lg:mb-10">
+              <button className="text-white bg-[#BE123C] rounded p-2 text-[20px] w-full lg:w-[220px] font-medium">
                 Top rated movie #65
               </button>
               <div className="border-2 flex items-center justify-between rounded p-1.5 gap-2 text-[20px] font-medium">
@@ -100,7 +112,7 @@ const SingleMovies = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-3   mt-5 md:justify-center  md:items-center items-center">
+          <div className="flex flex-col gap-3 mt-5 items-start justify-start md:justify-center  md:items-center lg:mb-10">
             <button className="text-white bg-[#BE123C]  flex items-center justify-center w-[200px] gap-2  rounded p-2 text-[14px]">
               <img src={ticket} alt="Show Icon" width={20} height={20} />
               See Showtimes

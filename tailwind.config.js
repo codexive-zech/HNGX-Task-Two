@@ -7,6 +7,11 @@ export default {
   ],
   theme: {
     extend: {},
+    screens: {
+      sm: { min: "375px" },
+      md: { min: "768px" },
+      lg: { min: "1024px" },
+    },
   },
   plugins: [require("preline/plugin"), require("@tailwindcss/forms")],
 };

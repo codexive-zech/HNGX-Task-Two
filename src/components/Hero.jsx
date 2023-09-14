@@ -19,7 +19,7 @@ const Hero = () => {
 
   const url = `/movie/popular?api_key=35d53b06ecff5627945333051bd3ec2d&language=en-US`;
 
-  const { data, isLoading, isError } = useQuery({
+  const { data } = useQuery({
     queryKey: ["hero-movies"],
     queryFn: async () => {
       const { data } = await customFetch.get(url);
@@ -42,14 +42,20 @@ const Hero = () => {
                         movie.poster_path || movie.backdrop_path
                       })`,
                     }}
-                    className=" bg-center bg-cover bg-no-repeat object-cover w-[1440px] h-[600px] max-w-full"
+                    className=" bg-center bg-cover bg-no-repeat object-cover w-full h-1/2 lg:w-[1440px] lg:h-[600px] max-w-full"
                   >
                     <div className=" flex items-center justify-between w-[90vw] mx-auto pt-4">
                       <div className=" flex items-center">
-                        <img src={logo} alt="Logo" />
-                        <h1 className=" text-2xl font-bold">MovieBox</h1>
+                        <img
+                          src={logo}
+                          className=" w-[32px] h-[32px] md:w-[45px] md:h-[45px]"
+                          alt="Logo"
+                        />
+                        <h1 className=" text-xl lg:text-2xl font-bold">
+                          MovieBox
+                        </h1>
                       </div>
-                      <div className=" relative">
+                      <div className=" relative hidden md:flex items-center">
                         <input
                           type="text"
                           className="py-3 px-4 block w-[30vw] border-white rounded-md text-sm bg-transparent placeholder:text-white outline-white "
@@ -69,9 +75,9 @@ const Hero = () => {
                       </div>
                     </div>
 
-                    <div className=" w-[90vw] max-w-6xl mx-auto mt-[100px] flex items-center justify-between">
+                    <div className=" w-[90vw] max-w-6xl mx-auto mt-[70px] lg:mt-[100px] flex items-center justify-between">
                       <div className=" ">
-                        <h1 className=" text-5xl font-bold leading-[99px] text-white">
+                        <h1 className=" text-5xl font-bold mb-2 lg:leading-[99px] text-white">
                           {movie.original_title}
                         </h1>
                         <div className="flex items-center gap-9">
@@ -88,10 +94,10 @@ const Hero = () => {
                             </p>
                           </div>
                         </div>
-                        <p className=" text-base font-normal mt-4 w-[45%] text-white">
+                        <p className=" text-sm lg:text-base font-normal mt-4 w-[65%] lg:w-[45%] text-white">
                           {movie.overview}
                         </p>
-                        <button className=" bg-[#BE123C] px-4 py-[6px] flex items-center gap-2 rounded-md mt-4">
+                        <button className=" bg-[#BE123C] px-4 py-[6px] flex items-center gap-2 rounded-md mt-4 mb-4">
                           <img
                             src={play}
                             alt="Play"
@@ -102,7 +108,7 @@ const Hero = () => {
                           </p>
                         </button>
                       </div>
-                      <div className=" mr-[-50px]">
+                      <div className=" lg:mr-[-50px]">
                         <ul className=" cursor-pointer">
                           {Array.from({ length: 5 }, (_, i) => i + 1).map(
                             (_, index) => (

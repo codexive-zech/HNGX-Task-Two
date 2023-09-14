@@ -30,9 +30,10 @@ const Features = () => {
 
   if (isError) {
     return (
-      <div className=" flex items-center justify-center">
-        <h1> An Error Occurred</h1>
-      </div>
+      <section className=" text-center">
+        <h1 className=" text-6xl lg:text-9xl mb-5 text-red-500">404</h1>
+        <h3 className=" text-3xl lg:text-5xl mb-8">Sorry, 404 Error</h3>
+      </section>
     );
   }
 
@@ -40,14 +41,16 @@ const Features = () => {
     <div className=" relative">
       <div className=" w-[90vw] max-w-6xl mx-auto">
         <div className=" flex items-center justify-between">
-          <h1 className=" text-[32px] font-bold ">Feature Movies</h1>
+          <h1 className=" text-2xl lg:text-[32px] font-bold ">
+            Feature Movies
+          </h1>
           <h1 className=" text-[#BE123C] text-lg font-normal flex items-center justify-center gap-2 cursor-pointer">
             See More
             <img src={chevronRight} alt="" />
           </h1>
         </div>
 
-        <div className=" mt-11 grid grid-cols-4 gap-6 justify-between ">
+        <div className=" mt-11 grid grid-cols-1 lg:grid-cols-4 gap-12 lg:gap-6 justify-between ">
           {data?.results?.slice(0, 10).map((movie, index) => {
             return (
               <Link key={index} to={`/movie/${movie.id}`}>
@@ -55,16 +58,17 @@ const Features = () => {
                   <img
                     src={heart}
                     alt="heart"
-                    className=" absolute top-2 right-7 bg-[#7e7c92] p-1 rounded-full"
+                    className=" absolute top-3 lg:top-2 right-7 bg-[#7e7c92] p-1 rounded-full"
                   />
                   <img
                     src={`https://image.tmdb.org/t/p/original${
                       movie.poster_path || movie.backdrop_path
                     }`}
                     alt={movie.original_title}
-                    className=" w-[250px] h-[370px] rounded-md"
+                    className=" w-full lg:w-[250px] lg:h-[370px] rounded-md"
                     data-testid="movie-poster"
                   />
+
                   <p
                     className=" text-xs font-bold text-[#9CA3AF] mt-2"
                     data-testid="movie-release-date"
@@ -106,5 +110,3 @@ const Features = () => {
 };
 
 export default Features;
-
-// https://api.themoviedb.org/3/tv/top_rated?api_key=35d53b06ecff5627945333051bd3ec2d&language=en-US

@@ -8,7 +8,7 @@ import home from "../assets/Home.png";
 
 const Sidebar = () => {
   return (
-    <div className="w-[20%]">
+    <div className="w-[20%] hidden lg:flex">
       <div
         id="docs-sidebar"
         className="hs-overlay hs-overlay-open:translate-x-0 -translate-x-full transition-all duration-300 transform hidden fixed top-0 left-0 bottom-0 z-[60] w-64 bg-white border-r border-gray-200 pt-7 pb-10  lg:block lg:translate-x-0 lg:right-auto lg:bottom-0 rounded-tr-[3rem]"

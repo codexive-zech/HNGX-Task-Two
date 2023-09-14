@@ -51,16 +51,19 @@ const Footer = () => {
               );
             })}
           </div>
-          <div className="flex items-center justify-center gap-12 mt-9">
+          <div className="flex items-center justify-center gap-6 lg:gap-12 mt-9">
             {footerLink.map((item) => {
               return (
-                <p key={item.id} className=" text-lg font-bold">
+                <p
+                  key={item.id}
+                  className=" text-xs md:text-base lg:text-lg font-bold"
+                >
                   {item.text}
                 </p>
               );
             })}
           </div>
-          <p className=" text-lg font-bold text-[#6B7280] mt-9 text-center">
+          <p className=" text-sm md:text-base lg:text-lg font-bold text-[#6B7280] mt-9 text-center">
             © 2021 MovieBox by Adriana Eka Prayudha
           </p>
         </div>
