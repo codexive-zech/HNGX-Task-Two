@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import customFetch from "../utils";
-import heart from "../assets/heart.png";
+import heart from "../assets/Heart.png";
 import { getDateInUtcFormate } from "../features/getUTCTime";
 import { calcMovieRating } from "../features/CalcMovieRating";
 import imdb from "../assets/imdb.png";
