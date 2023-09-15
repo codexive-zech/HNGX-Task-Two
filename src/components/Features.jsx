@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import customFetch from "../utils";
 import heart from "../assets/Heart.png";
-import { getDateInUtcFormate } from "../features/getUTCTime";
 import { calcMovieRating } from "../features/CalcMovieRating";
 import imdb from "../assets/imdb.png";
 import rottenTomatoes from "../assets/rotten_tomatoes.png";
@@ -73,10 +72,7 @@ const Features = () => {
                     className=" text-xs font-bold text-[#9CA3AF] mt-2"
                     data-testid="movie-release-date"
                   >
-                    USA{" "}
-                    {getDateInUtcFormate(
-                      movie.release_date.toString().substring(0, 4)
-                    )}
+                    USA {movie.release_date}
                   </p>
                   <p
                     className=" text-lg font-bold mt-2"

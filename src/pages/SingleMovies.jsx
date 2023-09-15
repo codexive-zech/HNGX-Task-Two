@@ -35,8 +35,8 @@ const SingleMovies = () => {
   }, [id]);
 
   const totalMinutes = singleMovie?.runtime;
-  const hours = Math.floor(totalMinutes / 60);
-  const minutes = totalMinutes % 60;
+  // const hours = Math.floor(totalMinutes / 60);
+  // const minutes = totalMinutes % 60;
 
   if (isLoading) {
     return (
@@ -76,7 +76,7 @@ const SingleMovies = () => {
               {getDateInUtcFormate(singleMovie?.release_date)}
             </h1>
             <h1 data-testid="movie-runtime" className="text-sm lg:text-2xl">
-              {hours}h {minutes}m
+              {`${totalMinutes} Minutes`}
             </h1>
           </div>
 
